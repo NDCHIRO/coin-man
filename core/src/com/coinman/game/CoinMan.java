@@ -85,20 +85,18 @@ public class CoinMan extends ApplicationAdapter {
 		batch.begin();
 		batch.draw(background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
-		if(gameState == 0)
+		if(gameState == 0) {
 			//touch the screen to start the game
-			if(Gdx.input.justTouched())
-				gameState=1;
-
-		else if(gameState == 1)
-			//game is alive
+			if (Gdx.input.justTouched())
+				gameState = 1;
+		}
+		else if(gameState == 1) {    //game is alive
 			startTheGame();
-
-		else if(gameState == 2)
-			//game ended and touch to restart the game
-			if(Gdx.input.justTouched())
+		}
+		else if(gameState == 2) {    //game ended and touch to restart the game
+			if (Gdx.input.justTouched())
 				resetTheGame();
-
+		}
 		// if game state = 2 then its a dizzy state so draw dizzy man
 		if(gameState==2)
 			batch.draw(dizzy, Gdx.graphics.getWidth() / 2 - man[manState].getWidth() / 2,  manY);
